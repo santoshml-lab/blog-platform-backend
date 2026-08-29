@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from database import Base, engine
 from routes.auth import router as auth_router
 from routes.posts import router as posts_router
+from routes.comments import router as comments_router
 
 import models
 
@@ -21,6 +22,7 @@ app = FastAPI(
 # Authentication routes
 app.include_router(auth_router)
 app.include_router(posts_router)
+app.include_router(comments_router)
 
 
 @app.get("/")
